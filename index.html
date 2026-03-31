@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeevananthan | Full‑Stack Fresher</title>
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-padding-top: 70px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f8fafc;
+      color: #0b2b4f;
+      line-height: 1.6;
+    }
+
+    /*navbar*/
+    .navbar {
+      background-color: #ffffff !important;
+      box-shadow: 0 4px 20px rgba(0, 40, 80, 0.06);
+      padding: 0.8rem 0;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #0b2b4f !important;
+      letter-spacing: -0.02em;
+    }
+    .navbar-nav .nav-link {
+      color: #2c3e50 !important;
+      font-weight: 500;
+      margin: 0 1rem;
+      position: relative;
+      padding: 0.5rem 0 !important;
+    }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2.5px;
+      background-color: #2563eb;
+      transition: width 0.25s ease;
+    }
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #2563eb !important;
+    }
+
+    /* home section  */
+    .home-section {
+      min-height: 92vh;
+      background: linear-gradient(135deg, #f1f6fd 0%, #ffffff 80%);
+      display: flex;
+      align-items: center;
+      padding: 2rem 0;
+    }
+    .home-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .profile-img {
+      width: 190px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.2);
+      margin-bottom: 1.8rem;
+    }
+    .home-section h1 {
+      font-weight: 700;
+      font-size: 3.2rem;
+      color: #0b2b4f;
+      margin-bottom: 0.6rem;
+    }
+    .home-section .lead {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #2c3e50;
+      background: rgba(37, 99, 235, 0.03);
+      display: inline-block;
+      padding: 0.5rem 2rem;
+      border-radius: 60px;
+      margin-bottom: 2rem;
+      border: 1px solid #e0e7ff;
+    }
+    .btn-professional {
+      background-color: #2563eb;
+      color: white;
+      font-weight: 600;
+      padding: 0.9rem 2.8rem;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 12px 22px -8px #2563eb80;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-professional:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-3px);
+      box-shadow: 0 22px 28px -8px #1e3a8a;
+      color: white;
+    }
+
+   
+    .section-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0b2b4f;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .section-heading span {
+      border-bottom: 4px solid #2563eb;
+      padding-bottom: 0.4rem;
+    }
+
+    /* about card  */
+    .about-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 20px 35px -12px rgba(0,30,60,0.1);
+      border: 1px solid #e9eef3;
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #253c5c;
+      line-height: 1.8;
+    }
+
+    /* skills  */
+    .skill-outline {
+      background: white;
+      border: 1.5px solid #dbe7f5;
+      color: #1e3a8a;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.65rem 2rem;
+      border-radius: 60px;
+      margin: 0.5rem;
+      display: inline-block;
+      transition: 0.15s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+    .skill-outline:hover {
+      border-color: #2563eb;
+      background: #f5f9ff;
+      transform: translateY(-2px);
+    }
+
+    /* project cards */
+    .project-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 2rem;
+      height: 100%;
+      border: 1px solid #e2eaf2;
+      box-shadow: 0 12px 24px -16px #1e3a8a1a;
+      transition: all 0.25s;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 36px -16px #2563ebbf;
+      border-color: #b1c9f0;
+    }
+    .project-card h4 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #0a2540;
+      margin-bottom: 1rem;
+    }
+    .project-card p {
+      color: #2d4b71;
+      margin-bottom: 1.6rem;
+    }
+    .tech-badge-sm {
+      background: #eef4ff;
+      color: #1e3a8a;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-right: 0.6rem;
+      margin-bottom: 0.3rem;
+      border: 1px solid #cbd5e1;
+    }
+
+    /* contact */
+    #contact {
+      background-color: #0b2b4f;
+      color: white;
+    }
+    .contact-professional {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(6px);
+      border-radius: 48px;
+      padding: 2.5rem 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid #346094;
+    }
+    .contact-professional p {
+      font-size: 1.2rem;
+      margin: 1.2rem 0;
+    }
+    .contact-professional i {
+      color: #90caf9;
+      width: 40px;
+      font-size: 1.5rem;
+    }
+    /* Style for clickable links in contact */
+    .contact-professional a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-professional a:hover {
+      color: #90caf9;
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #05203c;
+      color: #9bb5d4;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .fade-up {
+      animation: fadeUp 0.7s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+<!--  NAVBAR  -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Jeevananthan</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME   -->
+<section id="home" class="home-section">
+  <div class="container home-content">
+
+    <img src="image/my image.jpeg.jpeg" alt="Jeevananthan" class="profile-img fade-up">
+    <h1 class="fade-up delay-1">Jeevananthan Prakash</h1>
+    <p class="lead fade-up delay-2">Full‑Stack Developer (fresher) · Java · Spring · Bootstrap</p>
+    <a href="#projects" class="btn-professional fade-up delay-3">View my work <i class="bi bi-arrow-right-short"></i></a>
+  </div>
+</section>
+
+<!-- ABOUT-->
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="section-heading text-center"><span>About me</span></h2>
+    <div class="about-card fade-up">
+      <p>I'm a recent computer science graduate with strong hands‑on experience in <strong>Java, MySQL, and modern front‑end technologies</strong>. During my academic projects, I developed a solid foundation in full‑stack development and agile practices. I’m now looking for my first developer role where I can contribute, learn from senior engineers, and build scalable applications.</p>
+      <p class="mb-0 mt-3 text-primary-emphasis"><i class="bi bi-check-circle-fill me-2" style="color:#2563eb;"></i> Open to junior / entry‑level full‑stack opportunities</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-5 bg-white">
+  <div class="container text-center">
+    <h2 class="section-heading"><span>Technical skills</span></h2>
+    <div class="mt-4 fade-up">
+      <span class="skill-outline">Java (core, JDBC)</span>
+      <span class="skill-outline">Spring Boot (basics)</span>
+      <span class="skill-outline">MySQL</span>
+      <span class="skill-outline">HTML5 & CSS3</span>
+      <span class="skill-outline">Bootstrap 5</span>
+      <span class="skill-outline">JavaScript (ES6)</span>
+      <span class="skill-outline">GitHub</span>
+      <span class="skill-outline">REST APIs (beginner)</span>
+      <span class="skill-outline">Eclipse / Apache NetBeans</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS  -->
+<section id="projects" class="py-5" style="background: #f9fcff;">
+  <div class="container">
+    <h2 class="section-heading text-center"><span>Projects</span></h2>
+    <div class="row g-4 mt-2 justify-content-center">
+      <!-- Project 1  -->
+      <div class="col-md-6 col-lg-4 fade-up delay-1">
+        <div class="project-card">
+          <h4>Urban Eats</h4>
+          <p>Responsive food delivery landing page with interactive restaurant cards, carousel, and reservation modal — built with Bootstrap 5 and custom CSS.</p>
+          <div>
+            <span class="tech-badge-sm">HTML</span>
+            <span class="tech-badge-sm">CSS</span>
+            <span class="tech-badge-sm">Bootstrap</span>
+             <span class="tech-badge-sm">Java - servlet</span>
+              <span class="tech-badge-sm"> MySQL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2  -->
+      <div class="col-md-6 col-lg-4 fade-up delay-2">
+        <div class="project-card">
+          <h4>Food Ordering System</h4>
+          <p>Desktop application using Java Swing and MySQL. Includes order form, real‑time price calculation, and JDBC integration for persistent storage.</p>
+          <div>
+            <span class="tech-badge-sm">Java Swing</span>
+            <span class="tech-badge-sm">MySQL</span>
+            <span class="tech-badge-sm">JDBC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3  -->
+      <div class="col-md-6 col-lg-4 fade-up delay-3">
+        <div class="project-card">
+          <h4>Portfolio website</h4>
+          <p>This professional portfolio — responsive, clean UI, built with Bootstrap and custom CSS to highlight my skills as a fresher.</p>
+          <div>
+            <span class="tech-badge-sm">Bootstrap</span>
+            <span class="tech-badge-sm">HTML/CSS</span>
+            <span class="tech-badge-sm">Responsive</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="py-5">
+  <div class="container text-center">
+    <h2 class="section-heading" style="color: white;"><span style="border-bottom-color: #90caf9;">Contact me</span></h2>
+    <div class="contact-professional fade-up delay-1">
+      <p><i class="bi bi-envelope-fill me-3"></i> jeevananthanprakash12@gmail.com</p>
+      <p><i class="bi bi-telephone-fill me-3"></i> +91 93441 33013</p>
+      <!-- LinkedIn link  -->
+      <p><i class="bi bi-linkedin me-3"></i> 
+        <a href="https://www.linkedin.com/in/jeevananthan-prakash/" target="_blank" rel="noopener noreferrer">
+          linkedin.com/in/jeevananthan-prakash
+        </a>
+      </p>
+      <!-- GitHub link  -->
+      <p><i class="bi bi-github me-3"></i> 
+        <a href="https://github.com/Jeevananthan-prakash" target="_blank" rel="noopener noreferrer">
+          github.com/jeevananthan-prakash
+        </a>
+      </p>
+    </div>
+    <p class="mt-4 text-light opacity-75 fs-5 fade-up delay-2">📌 available for junior developer roles & internships</p>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2025 Jeevananthan Prakash · designed with a professional fresher mindset
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
